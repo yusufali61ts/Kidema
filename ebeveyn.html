@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kidema - Ebeveyn Kontrolü</title>
+    
+    <link rel="icon" type="image/png" href="images/logo-ikon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-lg bg-white py-1 border-bottom mb-4 hafif-golge sticky-top">
+        <div class="container d-flex justify-content-between align-items-center">
+            
+            <a class="navbar-brand py-0" href="index.html">
+                <img src="images/logo.png" alt="Kidema Logo" class="site-logosu">
+            </a>
+
+            <form class="d-flex w-50 mx-4">
+                <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0 rounded-start-pill"><i class="bi bi-search"></i></span>
+                    <input class="form-control rounded-end-pill border-start-0 bg-light py-2 shadow-none" type="search" placeholder="Hangi filmi izlemek istersin? 🍿">
+                </div>
+            </form>
+
+            <a href="#" class="btn btn-outline-dark rounded-pill px-4 py-2 kalin-yazi">
+                <i class="bi bi-person-circle me-1"></i> Hesap
+            </a>
+            
+        </div>
+    </nav>
+
+    <div class="container mb-5 flex-grow-1 d-flex justify-content-center align-items-center">
+        <div class="col-md-6 col-lg-4">
+
+            <input type="checkbox" id="kartAc">
+
+            <div class="kart-kapsayici">
+                <div class="kart-ic">
+
+                    <div class="kart-on card border-0 shadow-lg p-5 text-center bg-white w-100">
+                        <div class="mb-3">
+                            <i class="bi bi-shield-lock text-danger" style="font-size: 3.5rem;"></i>
+                        </div>
+                        <h3 class="kalin-yazi text-dark mb-2">Ebeveyn Onayı</h3>
+                        <p class="text-muted fw-bold mb-4 small">Ayarlara erişmek için işlemi çözün:</p>
+
+                        <div class="bg-light p-3 rounded-4 mb-4 border">
+                            <h2 class="kalin-yazi text-primary m-0">12 + 5 = ?</h2>
+                        </div>
+
+                        <input
+                            type="text"
+                            id="cevapInput"
+                            pattern="17"
+                            required
+                            autocomplete="off"
+                            placeholder="Cevabı yazın..."
+                            class="form-control form-control-lg text-center mb-3 border rounded-pill py-3 fw-bold shadow-none"
+                        >
+
+                        <div class="hata-mesaji text-danger fw-bold small mb-3">
+                            <i class="bi bi-exclamation-circle-fill"></i> Hatalı cevap, tekrar deneyiniz!
+                        </div>
+
+                        <button type="button" class="yanlis-buton btn btn-danger btn-lg w-100 rounded-pill kalin-yazi shadow-sm py-3 border-0">
+                            Doğrula ve Giriş Yap
+                        </button>
+
+                        <label for="kartAc" class="dogru-buton-label btn btn-success btn-lg w-100 rounded-pill kalin-yazi shadow-sm py-3 border-0 mb-0 align-items-center justify-content-center gap-2" style="cursor: pointer;">
+                            <i class="bi bi-check-circle-fill"></i> Doğrula ve Giriş Yap
+                        </label>
+                    </div>
+
+                    <div class="kart-arka card border-0 shadow-lg p-5 text-center bg-primary text-white d-flex flex-column justify-content-center align-items-center w-100">
+                        
+                        <div class="spinner-wrap">
+                            <div class="spinner-border text-white opacity-75" style="width:3rem;height:3rem;border-width:3px;" role="status">
+                                <span class="visually-hidden">Yükleniyor...</span>
+                            </div>
+                        </div>
+
+                        <div class="checkmark-wrap bg-white rounded-circle d-flex align-items-center justify-content-center mb-4" style="width:80px;height:80px;">
+                            <i class="bi bi-check-lg text-primary" style="font-size:3rem;line-height:1;"></i>
+                        </div>
+
+                        <h2 class="kalin-yazi mb-2">İŞLEM BAŞARILI!</h2>
+                        <p class="fw-bold opacity-75 small mb-0">Ebeveyn Ayarları Açılıyor...</p>
+
+                        <div class="progress w-100 mt-4 rounded-pill" style="height:6px;background:rgba(255,255,255,0.25);">
+                            <div class="progress-bar bg-white progress-bar-animasyon rounded-pill" role="progressbar" style="width:0%"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="bg-white py-4 mt-auto border-top">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="d-flex gap-4">
+                <a href="#" class="text-decoration-none text-secondary kalin-yazi">Hakkımızda</a>
+                <a href="#" class="text-decoration-none text-secondary kalin-yazi">İletişim</a>
+                <a href="#" class="text-decoration-none text-secondary kalin-yazi">Destek</a>
+            </div>
+            <span class="text-muted fw-bold small">Kidema Ebeveyn Koruma Sistemi © 2026</span>
+        </div>
+    </footer>
+
+</body>
+</html>

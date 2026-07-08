@@ -1,0 +1,203 @@
+/* GENEL AYARLAR */
+body {
+    font-family: 'Nunito', sans-serif;
+    background: #f0f4f8; 
+}
+
+.kalin-yazi { font-weight: 800; }
+.hafif-golge { box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+
+/* LOGO AYARI (Tüm sayfalarda aynı kalacak) */
+.site-logosu {
+    height: 90px;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+/* ÜST BÖLÜM HİZALAMALARI */
+.ust-alan-hizalama {
+    min-height: 320px; 
+}
+.tam-boy-resim {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- FRAGMAN SLAYTI ÖZEL AYARLARI --- */
+.ok-seffaf {
+    opacity: 0.3 !important; 
+    transition: opacity 0.3s ease;
+}
+.ok-seffaf:hover {
+    opacity: 0.8 !important;
+}
+
+.nokta-belirtecler [data-bs-target] {
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50%;
+    margin: 0 5px;
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    border: none !important;
+}
+.nokta-belirtecler .active {
+    background-color: white !important;
+    opacity: 1 !important;
+}
+
+/* SAĞ TARAF LİNKLER */
+.sag-hizli-linkler {
+    height: 100%;
+    min-height: 320px;
+}
+.link-kutusu {
+    flex: 1; 
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+.link-kutusu:hover {
+    transform: translateY(-4px);
+    border-color: #3b82f6; 
+}
+.ikon-kapsayici {
+    width: 45px; height: 45px;
+}
+
+/* FİLM KAYDIRMA VE KART STİLLERİ */
+.film-kaydirma-alani {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none; 
+}
+.film-kaydirma-alani::-webkit-scrollbar {
+    display: none;
+}
+
+.film-karti-yeni {
+    width: 200px; 
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+.afis-resmi {
+    width: 100%;
+    aspect-ratio: 2/3; 
+    object-fit: cover;
+    border-radius: 12px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+.film-karti-yeni:hover {
+    transform: scale(1.03);
+}
+
+/* KATEGORİ KARTLARI */
+.kategori-karti {
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px 20px;
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #f0f0f0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.kategori-karti:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05) !important;
+}
+.emoji-ikon {
+    font-size: 3rem; 
+}
+
+/* FOOTER AYARLARI */
+footer a.text-secondary:hover {
+    color: #000 !important;
+}
+
+/* =========================================
+   EBEVEYN KARTI ANİMASYONLARI (YENİ EKLENDİ)
+   ========================================= */
+
+.kart-kapsayici {
+    perspective: 1200px;
+    width: 100%;
+}
+.kart-ic {
+    position: relative;
+    width: 100%;
+    min-height: 480px;
+    transition: transform 0.75s cubic-bezier(.4,0,.2,1);
+    transform-style: preserve-3d;
+}
+.kart-on, .kart-arka {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 1.5rem !important;
+}
+.kart-arka {
+    transform: rotateY(180deg);
+    min-height: 480px;
+}
+#kartAc { display: none; }
+.hata-mesaji { display: none; }
+
+#cevapInput:not(:placeholder-shown):invalid ~ .hata-mesaji { display: block; }
+#cevapInput:not(:placeholder-shown):invalid ~ .dogru-buton-label { display: none !important; }
+#cevapInput:not(:placeholder-shown):invalid ~ .yanlis-buton { animation: titreme 0.4s ease; }
+#cevapInput:valid ~ .dogru-buton-label { display: flex !important; }
+#cevapInput:valid ~ .yanlis-buton { display: none !important; }
+.dogru-buton-label { display: none; }
+.yanlis-buton { display: block; }
+#kartAc:checked ~ .kart-kapsayici .kart-ic { transform: rotateY(180deg); }
+.progress-bar-animasyon { width: 0%; }
+#kartAc:checked ~ .kart-kapsayici .progress-bar-animasyon {
+    animation: yuklenme 2.5s ease forwards;
+    animation-delay: 0.8s;
+}
+.spinner-wrap { opacity: 0; margin-bottom: 1.5rem; }
+#kartAc:checked ~ .kart-kapsayici .spinner-wrap {
+    animation: spinnerGoster 0.1s ease forwards, spinnerGizle 0.3s ease forwards;
+    animation-delay: 0s, 1.5s;
+}
+.checkmark-wrap { opacity: 0; transform: scale(0.5); }
+#kartAc:checked ~ .kart-kapsayici .checkmark-wrap {
+    animation: checkmarkGoster 0.5s cubic-bezier(.34,1.56,.64,1) forwards;
+    animation-delay: 1.8s;
+}
+@keyframes titreme {
+    0%   { transform: translateX(0); }
+    20%  { transform: translateX(-8px); }
+    40%  { transform: translateX(8px); }
+    60%  { transform: translateX(-5px); }
+    80%  { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+}
+@keyframes yuklenme {
+    from { width: 0%; }
+    to   { width: 100%; }
+}
+@keyframes spinnerGoster { to { opacity: 1; } }
+@keyframes spinnerGizle {
+    from { opacity: 1; height: auto; }
+    to   { opacity: 0; height: 0; margin: 0; overflow: hidden; }
+}
+@keyframes checkmarkGoster {
+    from { opacity: 0; transform: scale(0.5); }
+    to   { opacity: 1; transform: scale(1); }
+}
+#cevapInput:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(220,53,69,0.2);
+    border-color: #dc3545;
+}
+#cevapInput:not(:placeholder-shown):valid {
+    border-color: #198754;
+    box-shadow: 0 0 0 3px rgba(25,135,84,0.15);
+}
+#cevapInput:not(:placeholder-shown):invalid {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 3px rgba(220,53,69,0.15);
+}
